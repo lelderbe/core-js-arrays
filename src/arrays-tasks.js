@@ -265,8 +265,10 @@ function distinct(arr) {
  *    createNDimensionalArray(4, 2) => [[[[0, 0], [0, 0]], [[0, 0], [0, 0]]], [[[0, 0], [0, 0]], [[0, 0], [0, 0]]]]
  *    createNDimensionalArray(1, 1) => [0]
  */
-function createNDimensionalArray(/* n, size */) {
-  throw new Error('Not implemented');
+function createNDimensionalArray(n, size) {
+  return Array(size)
+    .fill(0)
+    .map(() => new Array(n).fill(0));
 }
 
 /**
@@ -281,9 +283,7 @@ function createNDimensionalArray(/* n, size */) {
  *    flattenArray([1, 2, 3, 4]) => [1, 2, 3, 4]
  */
 function flattenArray(nestedArray) {
-  return nestedArray.flatMap((item) =>
-    Array.isArray(item) ? item.flat() : item
-  );
+  return nestedArray.flat(Infinity);
 }
 
 /**
